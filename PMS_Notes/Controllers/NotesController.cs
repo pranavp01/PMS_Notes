@@ -23,7 +23,7 @@ namespace PMS_Notes.Controllers
 
         [HttpGet]
         [Route("GetReceivedNotes")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Physician,Nurse")]
         public ActionResult<IEnumerable<Notes>> GetReceivedNotes(int userId)
         {
             try
@@ -40,6 +40,7 @@ namespace PMS_Notes.Controllers
 
         [HttpGet]
         [Route("GetSentNotes")]
+        [Authorize(Roles = "Admin,Physician,Nurse")]
         public ActionResult<IEnumerable<Notes>> GetSentNotes(int userId)
         {
             try
@@ -56,6 +57,7 @@ namespace PMS_Notes.Controllers
 
         [HttpPost]
         [Route("AddNote")]
+        [Authorize(Roles = "Admin,Physician,Nurse")]
         public ActionResult<IEnumerable<Notes>> AddNote(Notes notes)
         {
             try
@@ -73,6 +75,7 @@ namespace PMS_Notes.Controllers
 
         [HttpPost]
         [Route("DeleteNote")]
+        [Authorize(Roles = "Admin,Physician,Nurse")]
         public ActionResult<IEnumerable<Notes>> DeleteNote(int id)
         {
             try
@@ -89,6 +92,7 @@ namespace PMS_Notes.Controllers
 
         [HttpPost]
         [Route("ReplyNote")]
+        [Authorize(Roles = "Admin,Physician,Nurse")]
         public ActionResult<IEnumerable<Notes>> ReplyNote(string response,int noteId,int userId)
         {
             try

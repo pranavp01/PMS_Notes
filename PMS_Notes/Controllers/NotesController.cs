@@ -12,7 +12,7 @@ namespace PMS_Notes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class NotesController : ControllerBase
     {
         private readonly INotesRepository _notesRespotiroy;
@@ -23,7 +23,7 @@ namespace PMS_Notes.Controllers
 
         [HttpGet]
         [Route("GetReceivedNotes")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult<IEnumerable<Notes>> GetReceivedNotes(int userId)
         {
             try

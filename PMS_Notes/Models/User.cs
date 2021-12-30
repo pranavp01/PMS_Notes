@@ -7,7 +7,9 @@ namespace PMS_Notes.Models
 {
     public class User
     {
-        public int Id { get; set; }
-        public List<Notes> Notes { get; set; }
+        
+        public string EmailId { get; set; }
+        public string OldPassword { get; set; }
+        public string NewPassword { get; set; }
     }
 }

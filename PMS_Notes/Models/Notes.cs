@@ -17,6 +17,7 @@ namespace PMS_Notes.Models
         public int IsCancelled { get; set; }
         public DateTime CreatedAt { get; set; }
         public string Response { get; set; }
+        public string Designation { get; set; }
 
     }
 }

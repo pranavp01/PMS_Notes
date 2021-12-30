@@ -6,11 +6,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using PMS_Notes.Models;
 using PMS_Notes.Interface;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PMS_Notes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class NotesController : ControllerBase
     {
         private readonly INotesRepository _notesRespotiroy;
@@ -21,6 +23,7 @@ namespace PMS_Notes.Controllers
 
         [HttpGet]
         [Route("GetReceivedNotes")]
+        [Authorize(Roles = "Admin")]
         public ActionResult<IEnumerable<Notes>> GetReceivedNotes(int userId)
         {
             try

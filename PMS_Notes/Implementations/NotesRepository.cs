@@ -33,6 +33,7 @@ namespace PMS_Notes.Implementations
                     command.Parameters.AddWithValue("@userId", note.UserId);
                     command.Parameters.AddWithValue("@urgency", note.IsUrgent);
                     command.Parameters.AddWithValue("@receiverId", note.ReceiverId);
+                    command.Parameters.AddWithValue("@designation", note.Designation);
                     SqlParameter outParameter = new SqlParameter
                     {
                         ParameterName = "@Id",
@@ -101,12 +102,13 @@ namespace PMS_Notes.Implementations
                         {
                             Id = Convert.ToInt32(sdr["id"]),
                             CreatedAt = (DateTime)sdr["createdAt"],
-                            Receiver=sdr["receiver"].ToString(),
-                            Sender=sdr["sender"].ToString(),
-                            Note=sdr["notess"].ToString(),
-                            ReceiverId= Convert.ToInt32(sdr["ReceiverId"]),
-                            UserId= Convert.ToInt32(sdr["userId"]),
-                            IsUrgent= Convert.ToInt32(sdr["urgency"])
+                            Receiver = sdr["receiver"].ToString(),
+                            Sender = sdr["sender"].ToString(),
+                            Note = sdr["notess"].ToString(),
+                            ReceiverId = Convert.ToInt32(sdr["ReceiverId"]),
+                            UserId = Convert.ToInt32(sdr["userId"]),
+                            IsUrgent = Convert.ToInt32(sdr["urgency"]),
+                            Designation = sdr["designation"].ToString()
                         };
                        
                         listOfNotes.Add(notes);
@@ -176,7 +178,8 @@ namespace PMS_Notes.Implementations
                             ReceiverId = Convert.ToInt32(sdr["ReceiverId"]),
                             UserId = Convert.ToInt32(sdr["userId"]),
                             IsUrgent = Convert.ToInt32(sdr["urgency"]),
-                            Response=sdr["response"].ToString()
+                            Response=sdr["response"].ToString(),
+                             Designation = sdr["designation"].ToString()
                         };
                         listOfNotes.Add(notes);
 
